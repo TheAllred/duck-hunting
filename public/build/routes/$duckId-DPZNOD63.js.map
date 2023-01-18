@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../app/routes/$duckId.tsx"],
-  "sourcesContent": ["import { json, LoaderArgs } from \"@remix-run/node\";\nimport { useLoaderData } from \"@remix-run/react\";\nimport { notFound } from \"remix-utils\";\n\nimport knex from \"~/knex\";\n\nexport async function loader({ params }: LoaderArgs) {\n  const duck = await knex(\"ducks\").where(\"id\", params.duckId).first();\n\n  if (!duck) {\n    throw notFound({ message: \"Duck Not Found!\" });\n  }\n\n  await knex(\"user_ducks\").insert({\n    user_id: \"1\",\n    duck_id: duck.id,\n  });\n\n  return json({\n    duck: duck,\n  });\n}\n\nexport default function () {\n  const { duck } = useLoaderData<typeof loader>();\n\n  return (\n    <>\n      <div>duck id: {duck.id}</div>\n      <div>duck name: {duck.name}</div>\n    </>\n  );\n}\n"],
-  "mappings": ";;;;;;;AA2BI;AAJW,SAAR,iBAAoB;AACzB,QAAM,EAAE,KAAK,IAAI,cAA6B;AAE9C,SACE,sFACE;AAAA,uDAAC,SAAI;AAAA;AAAA,MAAU,KAAK;AAAA,SAApB;AAAA;AAAA;AAAA;AAAA,WAAuB;AAAA,IACvB,mDAAC,SAAI;AAAA;AAAA,MAAY,KAAK;AAAA,SAAtB;AAAA;AAAA;AAAA;AAAA,WAA2B;AAAA,OAF7B;AAAA;AAAA;AAAA;AAAA,SAGA;AAEJ;",
-  "names": []
-}

@@ -1,1 +1,0 @@
-import{b as o,h as u,l as s}from"/build/_shared/chunk-YTW7IMW2.js";var r=o(s());function t(){let{leaderBoard:n}=u();return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)("ul",{children:n.map(e=>(0,r.jsxs)("li",{children:[e.username,":",e.count]}))})})}export{t as default};

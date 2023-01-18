@@ -1,1 +1,0 @@
-import{b as r,h as e,l as t}from"/build/_shared/chunk-YTW7IMW2.js";var d=r(t());function i(){let{duck:o}=e();return(0,d.jsxs)(d.Fragment,{children:[(0,d.jsxs)("div",{children:["duck id: ",o.id]}),(0,d.jsxs)("div",{children:["duck name: ",o.name]})]})}export{i as default};
