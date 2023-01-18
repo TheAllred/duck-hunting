@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/routes/index.tsx"],
+  "sourcesContent": ["import { json } from \"@remix-run/node\";\nimport { useLoaderData } from \"@remix-run/react\";\nimport knex from \"~/knex\";\n\nexport async function loader() {\n  const leaderBoard: { id: string; username: string; count: string }[] =\n    await knex(\"user_ducks\")\n      .select(\"users.id\")\n      .select(\"users.username\")\n      .count()\n      .join(\"users\", \"users.id\", \"user_ducks.user_id\")\n      .groupBy(\"users.id\")\n      .groupBy(\"users.username\")\n      .orderBy(\"count\", \"desc\")\n      .limit(100);\n\n  return json({\n    leaderBoard,\n  });\n}\n\nexport default function Index() {\n  const { leaderBoard } = useLoaderData<typeof loader>();\n\n  return (\n    <>\n      <ul>\n        {leaderBoard.map((boardEntry) => (\n          <li>\n            {boardEntry.username}:{boardEntry.count}\n          </li>\n        ))}\n      </ul>\n    </>\n  );\n}\n"],
+  "mappings": ";;;;;;;AAyBI;AAJW,SAAR,QAAyB;AAC9B,QAAM,EAAE,YAAY,IAAI,cAA6B;AAErD,SACE,sFACE,6DAAC,QACE,sBAAY,IAAI,CAAC,eAChB,mDAAC,QACE;AAAA,eAAW;AAAA,IAAS;AAAA,IAAE,WAAW;AAAA,OADpC;AAAA;AAAA;AAAA;AAAA,SAEA,CACD,KALH;AAAA;AAAA;AAAA;AAAA,SAMA,KAPF;AAAA;AAAA;AAAA;AAAA,SAQA;AAEJ;",
+  "names": []
+}
