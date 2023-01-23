@@ -6,6 +6,7 @@ import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
 // import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
 
+
 export async function loader() {
   const leaderBoard: { id: string; username: string; count: string }[] =
     await knex("user_ducks")
@@ -29,7 +30,7 @@ export default function Index() {
   return (
     <>
     <header>
-      {/* <Header logo={duckLogo} link="user.html"/> */}
+      <Header logo="https://cdn.discordapp.com/attachments/858075406191820810/1067217369904205864/full-trans-logo.png" link="user.html"/>
     </header>
     <main>
       <Welcome />
@@ -121,17 +122,17 @@ function Features (){
     <div  className="features">
       <h2>What is Duck Duck Hunt?</h2>
       <section>
-          <img src="images/trans-single-duck.png" alt="single duck"/>
+          <img src="https://cdn.discordapp.com/attachments/1062411530605449246/1065059844672999566/trans-single-duck.png" alt="single duck"/>
           <h3>Feature 1</h3>
           <p>Hey, take a look at the earthlings. Goodbye! Just my luck, no ice. You really think you can fly that thing? Is this my espresso machine? Wh-what is-h-how did you get my espresso machine?</p>
       </section>
       <section>
-          <img src="images/trans-single-duck.png" alt="single duck"/>
+          <img src="https://cdn.discordapp.com/attachments/1062411530605449246/1065059844672999566/trans-single-duck.png" alt="single duck"/>
           <h3>Feature 2</h3>
           <p>Must go faster... go, go, go, go, go! Did he just throw my cat out of the window? God help us, we're in the hands of engineers. Life finds a way.</p>
       </section>
       <section>
-          <img src="images/trans-single-duck.png" alt="single duck"/>
+          <img src="https://cdn.discordapp.com/attachments/1062411530605449246/1065059844672999566/trans-single-duck.png" alt="single duck"/>
           <h3>Feature 3</h3>
           <p>So you two dig up, dig up dinosaurs? They're using our own satellites against us. And the clock is ticking. Remind me to thank John for a lovely weekend. Forget the fat lady! You're obsessed with the fat lady</p>
       </section>
@@ -145,7 +146,7 @@ function Features (){
 function Footer () {
   return (
     <footer>
-      {/* <img src={duckLogo} alt="duck duck hunt logo" className="logo" /> */}
+      <img src="https://cdn.discordapp.com/attachments/858075406191820810/1067217369904205864/full-trans-logo.png" alt="duck duck hunt logo" className="logo" />
       <p>Quick Links</p>
       <a href="#">Feedback</a>
       <a href="about.html">About</a>
