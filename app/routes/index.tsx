@@ -1,11 +1,19 @@
 import { json } from "@remix-run/node";
+import { Link } from 'react-router-dom';
 import { useLoaderData } from "@remix-run/react";
 import knex from "~/knex";
 import UserLineIcon from "remixicon-react/UserLineIcon";
 import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
 // import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
+import mainStyles from "~/css/styles.css";
 
+export function links() {
+  return[
+    {rel: 'stylesheet',
+    href: mainStyles}
+  ]
+}
 
 export async function loader() {
   const leaderBoard: { id: string; username: string; count: string }[] =
@@ -36,7 +44,6 @@ export default function Index() {
       <Welcome />
       <div className="found-duck">
         <DuckFound duckNum={4} timesFound={3} />
-        <p>Login to save your find or create a free account</p>
         <CreateAccntButton />
         <LoginButton />
       </div>
@@ -55,6 +62,7 @@ export default function Index() {
     // </>
   );
 }
+
 type AppHeadProps = {
   logo:string;
   link:string;
@@ -70,24 +78,16 @@ function Header({ logo, link }:AppHeadProps){
   )
 }
 
-function Nav(){
-  return(
-    <nav>
-      <ul>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="history.html">My Ducks</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  )
-}
+
 
 function Welcome(){
   return (
     <div className="welcome">
-        <h1>Welcome to Duck Duck Hunt!</h1>
-        <p>Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs. This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows.</p>
-      </div>
+          <div>
+            <h1>Welcome to Duck Duck Hunt!</h1>
+            <p>An interactive game that gets you and your friends out and in the competitive spirit.</p>
+          </div>
+        </div>
   )
 }
 
@@ -99,8 +99,8 @@ type AppDuckProps = {
 function DuckFound({duckNum, timesFound}:AppDuckProps){
   return(
     <>
-      <h1>You found duck #{duckNum}</h1>
-      <p>Duck #{duckNum} has be found {timesFound} times</p>
+      <h2>You Found Duck #4: Diego</h2>
+      <p>Login to save your duck or create a free account</p>
     </>
   )
 }
@@ -113,32 +113,40 @@ function CreateAccntButton (){
 
 function LoginButton (){
   return (
-    <button className="login-btn">Login</button>
+    <button className="login">Login</button>
   )
 }
 
 function Features (){
   return (
     <div  className="features">
-      <h2>What is Duck Duck Hunt?</h2>
+      <h1>How Does It Work?</h1>
       <section>
-          <img src="https://cdn.discordapp.com/attachments/1062411530605449246/1065059844672999566/trans-single-duck.png" alt="single duck"/>
-          <h3>Feature 1</h3>
-          <p>Hey, take a look at the earthlings. Goodbye! Just my luck, no ice. You really think you can fly that thing? Is this my espresso machine? Wh-what is-h-how did you get my espresso machine?</p>
+          <img src="https://cdn.discordapp.com/attachments/858075406191820810/1067570067035914371/green-duck.png" alt="single duck"/>
+          <div>
+            <h3>Step 1</h3>
+            <p>As you walk around campus, keep your eyes out for small rubber ducks. When you find a duck turn it over to find a QR code.</p>
+          </div>
       </section>
       <section>
-          <img src="https://cdn.discordapp.com/attachments/1062411530605449246/1065059844672999566/trans-single-duck.png" alt="single duck"/>
-          <h3>Feature 2</h3>
-          <p>Must go faster... go, go, go, go, go! Did he just throw my cat out of the window? God help us, we're in the hands of engineers. Life finds a way.</p>
+          <img src="https://cdn.discordapp.com/attachments/858075406191820810/1067570067400822875/pink-duck.png" alt="single duck"/>
+          <div>
+            <h3>Step 2</h3>
+            <p>Scan the QR code found on the duck. This will take you to our website where you can sign up for a free account. This also allows you to save the duck you found.</p>
+          </div>
       </section>
       <section>
-          <img src="https://cdn.discordapp.com/attachments/1062411530605449246/1065059844672999566/trans-single-duck.png" alt="single duck"/>
-          <h3>Feature 3</h3>
-          <p>So you two dig up, dig up dinosaurs? They're using our own satellites against us. And the clock is ticking. Remind me to thank John for a lovely weekend. Forget the fat lady! You're obsessed with the fat lady</p>
+          <img src="https://cdn.discordapp.com/attachments/858075406191820810/1067570066662641787/blue-duck.png" alt="single duck"/>
+          <div>
+            <h3>Step 3</h3>
+            <p>While they may all look the same, each duck has it's own unique name. Your job is to be the first to collect all 300 ducks. After finding a duck, you get the chance to give it a new hiding place on campus. Happy hunting!</p>
+          </div>
       </section>
-      <p>So what are you waiting for? Get hunting!</p>
-      <CreateAccntButton />
-      <LoginButton />
+      <div className="bottom-cta">
+        <h2>So what are you waiting for? Get hunting!</h2>
+        <CreateAccntButton />
+        <LoginButton />
+      </div>
     </div>
   )
 }
@@ -147,11 +155,18 @@ function Footer () {
   return (
     <footer>
       <img src="https://cdn.discordapp.com/attachments/858075406191820810/1067217369904205864/full-trans-logo.png" alt="duck duck hunt logo" className="logo" />
-      <p>Quick Links</p>
-      <a href="#">Feedback</a>
-      <a href="about.html">About</a>
-      <a href="https://www.facebook.com/"><FacebookCircleFillIcon color="#fff"/></a>
-      <a href="https://www.instagram.com/"><InstagramFillIcon color="#fff"/></a>
+      <div className="quick-links">
+            <p>Quick Links</p>
+            <a href="#">Feedback</a>
+            <a href="#">About</a>
+        </div>
+      <div className="socials">
+        <a href="https://www.facebook.com/"><FacebookCircleFillIcon color="#fff"/></a>
+        <a href="https://www.instagram.com/"><InstagramFillIcon color="#fff"/></a>
+      </div>
     </footer>
   )
 }
+
+
+

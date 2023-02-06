@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&family=Luckiest+Guy&family=Sanchez&display=swap');
+:root {
+  --heading-font:"League Spartan", sans-serif;
+  --logo-font:"luckiest Guy", sans-serif;
+  --body-font: "Sanchez", serif;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+p, a {
+  font-size: 1.1em;
+  font-family: var(--body-font);
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h1, h2{
+  font-family: var(--logo-font);
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-header, footer {
+  background-color: #38B6FF;
+  width: 100%;
+}
+
+.top-header {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.top-header a{
+    margin: auto 3em auto auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 3/4;
+}
+
+.top-header a:hover {
+  color: #F8E505;
+}
+
+.top-header a img {
+    width: 3em;
+}
+
+.logo {
+  max-height: 5em;
+  padding: 1em;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+nav ul li{
+  list-style: none;
+}
+
+nav ul li a{
+  font-family: var(--heading-font);
+}
+.active {
+  /* text-decoration: underline #F8E505; */
+  border-bottom: 2px solid #F8E505;
+  padding-bottom: 0.6em;
+}
+
+/* main {
+  width: 75%;
+  margin:auto;
+} */
+
+.welcome {
+  background-image: url(https://cdn.discordapp.com/attachments/858075406191820810/1067584302965084170/blue-duck-bubbles.png);
+  /* color: white; */ 
+  /* background-color: #13505B; */
+  max-width: 100%;
+  /* height: 120%; */
+  /* border-bottom:2px solid orangered; */
+}
+.welcome h1 {
+  padding-top: 2em;
+  margin-top: -1em;
+  -webkit-text-stroke: 1px black;
+  color: #F8E505;
+}
+
+.welcome h1, .welcome p {
+  text-align: center;
+}
+.welcome p {
+  width: 50%;
+  margin: auto;
+  padding-bottom: 1.5em;
+}
+
+.found-duck{
+  margin-top: 2em;
+  text-align: center;
+  /* border-bottom:2px solid orangered; */
+}
+
+.found-duck p{
+  margin:auto 1em .5em ;
+}
+
+.found-duck button, .bottom-cta button {
+  margin-bottom: 2em;
+  font-family: var(--heading-font);
+  font-size: 1.3em;
+  padding: 1em;
+  margin-right: .8em;
+  border-radius: 8px;
+}
+
+.create-accnt{
+  background-color: #DD5F32;
+  color: white;
+  border:none;
+  transition: 0.3s;
+}
+
+.create-accnt:hover {
+  background-color: #063a58;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login {
+  color: #DD5F32;
+  background-color: white;
+  border: 2px solid #DD5F32;
+  transition: 0.3s;
+}
+
+.login:hover {
+  cursor: pointer;
+  color: #063a58;
+  background-color: white;
+  border: 2px solid #063a58;
+  transition: 0.3s;
+}
+
+.features {
+  /* background-color: #dacb26c8; */
+  padding-top: 3em;
+}
+
+.features h1{
+ text-align: center;
+}
+
+.features section {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+}
+
+.features section img {
+  max-height: 20%;
+  margin: auto 1.3em ;
+}
+
+.features section div h3, .features section div p {
+  font-size: 1.5em;
+} 
+
+.bottom-cta{
+  padding-top: 2em;
+  background-image: url(https://cdn.discordapp.com/attachments/858075406191820810/1067584302965084170/blue-duck-bubbles.png);
+  text-align: center;
+}
+
+.bottom-cta h2{
+  font-family: var(--logo-font);
+  color: #F8E505;
+  -webkit-text-stroke: 1px black;
+}
+.footer-logo {
+  height: 6em;
+}
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 10em;
+  padding-top: 2em;
+}
+
+.quick-links a{
+  display: block;
+}
+
+.quick-links a:hover {
+  color: #F8E505;
+}
+
+.socials {
+  margin: auto;
+  /* display: inline; */
+}
+
+footer a img {
+  width: 2em;
+}
+
+/* -------------- HOME PAGE --------------- */
+
+.home-leaderboard{
+  background-color: #d8ecf1dd;
+  padding: 1em;
+}
+
+.home-leaderboard ol li{
+  border-bottom: 1px solid #063a58;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-count {
+  margin-right: 10px;
+}
+
+.duck-count a:hover {
+  border-bottom: 2px solid #F8E505;
+}
+
+
+@media screen and (min-width:780px){
+  .footer-logo {
+    height: 16em;
+  }
+  footer {
+    height: 20%;
+  }
+  .features section {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    margin: auto;
+  }
+  .features section img {
+    max-height: 10em;
+    margin: auto 1.3em ;
+  }
+
+  /* home page */
+  .home-main{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 35% 65%;
+  }
+  .found-duck {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .duck-count{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    border-top: 2px solid #DD5F32;
+    margin: 3em 1em;
+    text-align: center;
+  }
+
+  .home-leaderboard {
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+
+}
