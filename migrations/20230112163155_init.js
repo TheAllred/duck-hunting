@@ -7,8 +7,6 @@ exports.up = async function (knex) {
   await knex.schema.createTable("users", (t) => {
     t.bigIncrements("id");
     t.specificType("username", "citext").notNullable().unique();
-    t.string("password").notNullable();
-    t.string("avatar");
   });
   await knex.schema.createTable("ducks", (t) => {
     t.bigIncrements("id");
