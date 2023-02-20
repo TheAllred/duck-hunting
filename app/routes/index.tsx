@@ -1,3 +1,5 @@
+// This is the main landing page for when a duck is scanned or someone visits the site not logged in
+
 import { json } from "@remix-run/node";
 import { Link } from 'react-router-dom';
 import { useLoaderData } from "@remix-run/react";
@@ -63,16 +65,30 @@ export default function Index() {
   );
 }
 
+export function Nav(){
+  return(
+    <nav>
+      <ul>
+          <li><Link to="home" className="active">HOME</Link></li>
+          <li><Link to="leaderboard">LEADERBOARD</Link></li>
+          <li><Link to="history">MY DUCKS</Link></li>
+          <li><Link to="about">ABOUT</Link></li>
+      </ul>
+    </nav>
+  )
+}
+
 type AppHeadProps = {
   logo:string;
   link:string;
 
 }
 
-function Header({ logo, link }:AppHeadProps){
+export function Header({ logo, link }:AppHeadProps){
   return (
     <div className="top-header">
       <img src={logo} alt="duck duck hunt logo" className="logo"></img>
+      <Nav />
       <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
     </div>
   )

@@ -1,3 +1,5 @@
+// This is the main page with the users info and leaderboard
+
 import { json } from "@remix-run/node";
 import { Link } from 'react-router-dom';
 import { useLoaderData } from "@remix-run/react";
@@ -7,6 +9,8 @@ import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
 // import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
 import mainStyles from "~/css/styles.css";
+
+import { Header } from "~/routes/index"
 
 export function links() {
     return[
@@ -56,29 +60,29 @@ type AppHeadProps = {
   
   }
 
-function Header({ logo, link }:AppHeadProps){
-    return (
-      <div className="top-header">
-        <img src={logo} alt="duck duck hunt logo" className="logo"></img>
-        <Nav />
-        <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
-      </div>
-    )
-  }
+// function Header({ logo, link }:AppHeadProps){
+//     return (
+//       <div className="top-header">
+//         <img src={logo} alt="duck duck hunt logo" className="logo"></img>
+//         <Nav />
+//         <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
+//       </div>
+//     )
+//   }
 
 
-function Nav(){
-    return(
-      <nav>
-        <ul>
-            <li><Link to="./home.tsx" className="active">HOME</Link></li>
-            <li><Link to="./leaderboard.tsx">LEADERBOARD</Link></li>
-            <li><Link to="./history.tsx">MY DUCKS</Link></li>
-            <li><Link to="./about.tsx">ABOUT</Link></li>
-        </ul>
-      </nav>
-    )
-  }
+// function Nav(){
+//     return(
+//       <nav>
+//         <ul>
+//             <li><Link to="home" className="active">HOME</Link></li>
+//             <li><Link to="leaderboard">LEADERBOARD</Link></li>
+//             <li><Link to="history">MY DUCKS</Link></li>
+//             <li><Link to="about">ABOUT</Link></li>
+//         </ul>
+//       </nav>
+//     )
+//   }
 
   type AppDuckProps = {
     duckNum:number;
