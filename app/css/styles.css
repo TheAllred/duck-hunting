@@ -67,6 +67,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 nav ul {
@@ -77,6 +78,7 @@ nav ul {
 
 nav ul li{
   list-style: none;
+  padding: 1rem;
 }
 
 nav ul li a{

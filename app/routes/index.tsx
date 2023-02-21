@@ -2,10 +2,12 @@ import { json } from "@remix-run/node";
 import { Link } from 'react-router-dom';
 import { useLoaderData } from "@remix-run/react";
 import knex from "~/knex";
-import UserLineIcon from "remixicon-react/UserLineIcon";
 import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
-// import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
+import Header from "~/components/Header";
+import CreateAccntButton from "~/components/createAccntButton";
+import LoginButton from "~/components/loginButton";
+
 import mainStyles from "~/css/styles.css";
 
 export function links() {
@@ -63,21 +65,6 @@ export default function Index() {
   );
 }
 
-type AppHeadProps = {
-  logo:string;
-  link:string;
-
-}
-
-function Header({ logo, link }:AppHeadProps){
-  return (
-    <div className="top-header">
-      <img src={logo} alt="duck duck hunt logo" className="logo"></img>
-      <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
-    </div>
-  )
-}
-
 
 
 function Welcome(){
@@ -102,18 +89,6 @@ function DuckFound({duckNum, timesFound}:AppDuckProps){
       <h2>You Found Duck #4: Diego</h2>
       <p>Login to save your duck or create a free account</p>
     </>
-  )
-}
-
-function CreateAccntButton (){
-  return(
-    <button className="create-accnt">Create Account</button>
-  )
-}
-
-function LoginButton (){
-  return (
-    <button className="login">Login</button>
   )
 }
 

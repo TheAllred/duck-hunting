@@ -1,4 +1,4 @@
-import { json, LoaderArgs } from "@remix-run/node";
+import { json, LoaderArgs, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { notFound } from "remix-utils";
 
@@ -27,10 +27,13 @@ export async function loader({ params }: LoaderArgs) {
 export default function () {
   const { duck } = useLoaderData<typeof loader>();
 
-  return (
-    <>
-      <div>duck id: {duck.id}</div>
-      <div>duck name: {duck.name}</div>
-    </>
-  );
+  return redirect("/");
+  // This will redirect to the root page
+
+  // return (
+  //   <>
+  //     <div>duck id: {duck.id}</div>
+  //     <div>duck name: {duck.name}</div>
+  //   </>
+  
 }

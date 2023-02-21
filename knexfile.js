@@ -7,13 +7,11 @@ module.exports = {
   [process.env.NODE_ENV || "development"]: {
     client: "pg",
     connection: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: process.env.CA_CERT
-        ? {
-            rejectUnauthorized: true,
-            ca: process.env.CA_CERT,
-          }
-        : undefined,
+      host: 'localhost',
+      port: 5432,
+      user: 'postgres',
+      password: '5ehsc44wno',
+      database: 'duck_database'  
     },
     migrations: {
       tableName: "migrations",
