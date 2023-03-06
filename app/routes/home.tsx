@@ -123,40 +123,14 @@ function Leaderboard() {
     return (
         <div className="home-leaderboard">
             <h2>Leaderboard</h2>
-            <ul>
+            <ol>
                 {leaderBoard.map((boardEntry) => (
                     <li>
-                    {boardEntry.username}:{boardEntry.count}
+                    <p>{boardEntry.username}</p>
+                    <p className="user-count">{boardEntry.count}/300</p>
                     </li>
                 ))}
-            </ul>
-            <ol>
-                <li>
-                    <p>User</p>
-                    <p>Duck Count</p>
-                </li>
-                <li>
-                    <p>cooldude74 </p>
-                    <p className="user-count">136/300</p>
-
-                </li>
-                <li>
-                    <p>duckhunter49</p>
-                    <p className="user-count">112/300</p>
-                </li>
-                <li>
-                    <p>bobby</p>
-                    <p className="user-count">94/300</p>
-                </li>
-                <li>
-                    <p>quackerrrs3</p>
-                    <p className="user-count">89/300</p>
-                </li>
-                <li>
-                    <p>suzy7390</p>
-                    <p className="user-count">84/300</p>
-                </li>
-            </ol>
+            </ol>       
         </div>
     )
 }
