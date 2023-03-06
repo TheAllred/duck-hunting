@@ -1,11 +1,11 @@
-import { json, LoaderArgs } from "@remix-run/node";
+import { json, LoaderArgs, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { notFound } from "remix-utils";
 
 import knex from "~/knex";
 
 export async function loader({ params }: LoaderArgs) {
-  const duck = await knex("ducks").where("id", params.duckId).first();
+  const duck = await knex("ducks").where("slug", params.duckId).first();
 
   if (!duck) {
     throw notFound({ message: "Duck Not Found!" });
