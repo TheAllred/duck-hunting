@@ -7,6 +7,8 @@ import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
 // import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
 import mainStyles from "~/css/styles.css";
+import { loader } from "./home";
+import { Header } from "~/routes/index";
 
 export function links() {
     return[
@@ -15,7 +17,10 @@ export function links() {
     ]
 }
 
+
 export default function Leaderboard(){
+  // const { leaderBoard } = useLoaderData<typeof loader>();
+
     return(
         <>
         <header>
@@ -23,6 +28,14 @@ export default function Leaderboard(){
         </header>
         <main>
           <h1>Leaderboard</h1>
+          {/* <ol>
+                {leaderBoard.map((boardEntry) => (
+                    <li>
+                    <p>{boardEntry.username}</p>
+                    <p className="user-count">{boardEntry.count}/300</p>
+                    </li>
+                ))}
+          </ol> */}
           <ol>
             <li>
                 <p>User</p>
@@ -54,34 +67,34 @@ export default function Leaderboard(){
     )
 }
 
-function Nav(){
-    return(
-      <nav>
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#" className="active">LEADERBOARD</a></li>
-            <li><a href="#">MY DUCKS</a></li>
-            <li><a href="#">ABOUT</a></li>
-        </ul>
-      </nav>
-    )
-  }
+// function Nav(){
+//     return(
+//       <nav>
+//         <ul>
+//             <li><a href="#">HOME</a></li>
+//             <li><a href="#" className="active">LEADERBOARD</a></li>
+//             <li><a href="#">MY DUCKS</a></li>
+//             <li><a href="#">ABOUT</a></li>
+//         </ul>
+//       </nav>
+//     )
+//   }
 
-type AppHeadProps = {
-    logo:string;
-    link:string;
+// type AppHeadProps = {
+//     logo:string;
+//     link:string;
   
-}
+// }
 
-function Header({ logo, link }:AppHeadProps){
-    return (
-      <div className="top-header">
-        <img src={logo} alt="duck duck hunt logo" className="logo"></img>
-        <Nav />
-        <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
-      </div>
-    )
-}
+// function Header({ logo, link }:AppHeadProps){
+//     return (
+//       <div className="top-header">
+//         <img src={logo} alt="duck duck hunt logo" className="logo"></img>
+//         <Nav />
+//         <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
+//       </div>
+//     )
+// }
 
 
 

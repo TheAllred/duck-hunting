@@ -79,6 +79,11 @@ nav ul li{
   list-style: none;
 }
 
+ol li {
+  list-style:decimal;
+  display: list-item;
+}
+
 nav ul li a{
   font-family: var(--heading-font);
 }
@@ -143,6 +148,11 @@ nav ul li a{
   transition: 0.3s;
 }
 
+.create-accnt a{
+  color: white;
+  font-family: var(--heading-font);
+}
+
 .create-accnt:hover {
   background-color: #063a58;
   cursor: pointer;
@@ -154,6 +164,11 @@ nav ul li a{
   background-color: white;
   border: 2px solid #DD5F32;
   transition: 0.3s;
+}
+
+.login a {
+  color: #DD5F32;
+  font-family: var(--heading-font);
 }
 
 .login:hover {

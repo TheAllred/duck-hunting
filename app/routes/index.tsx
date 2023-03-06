@@ -7,6 +7,8 @@ import knex from "~/knex";
 import UserLineIcon from "remixicon-react/UserLineIcon";
 import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
+import UserSettingsLineIcon from "remixicon-react/UserSettingsLineIcon";
+import LogoutCircleRLineIcon from "remixicon-react/LogoutCircleRLineIcon";
 // import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
 import mainStyles from "~/css/styles.css";
 
@@ -69,10 +71,10 @@ export function Nav(){
   return(
     <nav>
       <ul>
-          <li><Link to="home" className="active">HOME</Link></li>
-          <li><Link to="leaderboard">LEADERBOARD</Link></li>
-          <li><Link to="history">MY DUCKS</Link></li>
-          <li><Link to="about">ABOUT</Link></li>
+          <li><Link to={"/home"} className="active">HOME</Link></li>
+          <li><Link to={"/leaderboard"}>LEADERBOARD</Link></li>
+          <li><Link to={"/history"}>MY DUCKS</Link></li>
+          <li><Link to={"/about"}>ABOUT</Link></li>
       </ul>
     </nav>
   )
@@ -89,7 +91,14 @@ export function Header({ logo, link }:AppHeadProps){
     <div className="top-header">
       <img src={logo} alt="duck duck hunt logo" className="logo"></img>
       <Nav />
-      <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
+      <div className="dropdown" tabIndex={1}>
+        <i className="db2" tabIndex={1}></i>
+        <a href={link} className="userlink"><UserLineIcon color="#fff"/><span>Account</span></a>
+        <div>
+          <a className="settings"><UserSettingsLineIcon />Settings</a>
+          <a className="logout" href="http://localhost:3000/logout"><LogoutCircleRLineIcon />Logout</a>
+        </div>
+      </div>
     </div>
   )
 }
@@ -121,15 +130,17 @@ function DuckFound({duckNum, timesFound}:AppDuckProps){
   )
 }
 
+
+
 function CreateAccntButton (){
   return(
-    <button className="create-accnt">Create Account</button>
+    <button className="create-accnt"><a href="http://localhost:3000/login">Create Account</a></button>
   )
 }
 
 function LoginButton (){
   return (
-    <button className="login">Login</button>
+    <button className="login"><a href="http://localhost:3000/home">Login</a></button>
   )
 }
 
