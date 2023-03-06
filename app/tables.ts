@@ -3,6 +3,8 @@ import { Knex } from "knex";
 export type User = {
   id: string;
   username: string;
+  password: string;
+  avatar: string;
 };
 export type Duck = {
   id: string;
