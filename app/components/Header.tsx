@@ -20,8 +20,9 @@ export function Header({ logo, user }: AppHeadProps) {
         <div className="dropdown" tabIndex={1}>
           <i className="db2" tabIndex={1}></i>
           <UserLineIcon color="#fff" />
-          <span>{user.nickname}</span>
-          <div>
+          <span id="username">{user.nickname}</span>
+
+          <div id="logout-div">
             <a className="logout" href="/logout">
               <LogoutCircleRLineIcon />
               Logout

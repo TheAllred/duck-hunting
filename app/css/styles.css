@@ -57,6 +57,12 @@ header {
 .top-header a img {
     width: 3em;
 }
+#username{
+float: right;
+}
+#logout-div{
+  margin-top: 10vw;
+}
 
 .logo {
   max-height: 5em;

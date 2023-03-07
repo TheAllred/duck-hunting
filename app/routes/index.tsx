@@ -83,7 +83,11 @@ type AppDuckProps = {
 function DuckFound({ duckNum, timesFound }: AppDuckProps) {
   const { duck } = useLoaderData<typeof loader>();
   if (!duck) {
-    return null;
+    return (
+      <div className="found-duck">
+        <h1>Scan a duck!</h1>
+      </div>
+    );
   }
   return (
     <div className="found-duck">
