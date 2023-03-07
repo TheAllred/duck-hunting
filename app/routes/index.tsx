@@ -93,7 +93,7 @@ function DuckFound({ duckNum, timesFound }: AppDuckProps) {
   return (
     <div className="found-duck">
       <h1>
-        You Found Duck {duck.id}: {duck.name}
+        You Found Duck #{duck.id}: {duck.name}
       </h1>
     </div>
   );
