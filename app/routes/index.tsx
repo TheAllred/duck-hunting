@@ -11,13 +11,15 @@ import mainStyles from "~/css/styles.css";
 import { Header } from "~/components/Header";
 import { Footer } from "~/components/Footer";
 import { notFound } from "remix-utils";
+import { getUser } from "~/getUser";
 
 export function links() {
   return [{ rel: "stylesheet", href: mainStyles }];
 }
 
 export async function loader(args: LoaderArgs) {
-  if (!args.context.user) {
+  const user = await getUser(args);
+  if (!user) {
     throw redirect("/about");
   }
   const duckId = new URL(args.request.url).searchParams.get("duckId");
@@ -31,6 +33,22 @@ export async function loader(args: LoaderArgs) {
       .groupBy("users.email")
       .orderBy("count", "desc")
       .limit(100);
+  const userHistory: {
+    id: string;
+    name: string;
+    found_at: string;
+  }[] = await knex("user_ducks")
+    .select("ducks.name")
+    .select("ducks.id")
+    .select("user_ducks.found_at")
+    .where("user_ducks.user_id", user.id)
+    .join("ducks", "ducks.id", "user_ducks.duck_id")
+    .orderBy("user_ducks.found_at", "desc")
+    .limit(5);
+
+  const [{ count }] = await knex("user_ducks")
+    .where("user_id", user.id)
+    .count();
 
   const duck = duckId
     ? await knex("ducks").where("id", duckId).first()
@@ -39,18 +57,19 @@ export async function loader(args: LoaderArgs) {
   return json({
     leaderBoard,
     duck,
+    userHistory,
+    count,
   });
 }
 
 export default function Home() {
-  // const { leaderBoard } = useLoaderData<typeof loader>();
-
   return (
     <>
       <main className="home-main">
         <DuckFound duckNum={4} timesFound={3} />
         <DuckCount counter={32} />
         <Leaderboard />
+        <UserHistory />
       </main>
     </>
   );
@@ -97,6 +116,25 @@ function Leaderboard() {
           </li>
         ))}
       </ol>
+    </div>
+  );
+}
+function UserHistory() {
+  const { userHistory, count } = useLoaderData<typeof loader>();
+
+  return (
+    <div className="home-UserHistory">
+      <h2>History</h2>
+      <p className="user-count">{count}/300</p>
+      <ul>
+        {userHistory.map((boardEntry) => (
+          <li>
+            <p>ID: {boardEntry.id}</p>
+            <p>Name: {boardEntry.name}</p>
+            <p>Found at: {boardEntry.found_at}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

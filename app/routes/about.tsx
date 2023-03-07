@@ -16,7 +16,6 @@ export default function Index() {
     <>
       <main>
         <Welcome />
-        <LoginButton />
         <Features />
       </main>
     </>
@@ -33,6 +32,7 @@ function Welcome() {
           competitive spirit.
         </p>
       </div>
+      <LoginButton />
     </div>
   );
 }

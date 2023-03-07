@@ -1,4 +1,3 @@
-import FacebookCircleFillIcon from "remixicon-react/FacebookCircleFillIcon";
 import InstagramFillIcon from "remixicon-react/InstagramFillIcon";
 
 export function Footer() {
