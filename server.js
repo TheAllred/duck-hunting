@@ -1,3 +1,4 @@
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const compression = require("compression");
@@ -16,8 +17,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: "a long, randomly-generated string stored in env",
-  baseURL: "https://duckduckhunt.net",
-  // baseURL: "http://localhost:3000",
+  baseURL: process.env.BASE_URL,
   clientID: "axHEdNUe1H7HiKQ0r0ZzKFbWLt3wDc1U",
   issuerBaseURL: "https://dev-tdg8pl5whnwec2z0.us.auth0.com",
 };
