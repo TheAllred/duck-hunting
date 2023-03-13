@@ -363,7 +363,7 @@ footer a img {
     grid-column: 1/2;
     grid-row: 2/3;
     /* border-top: 2px solid #DD5F32; */
-    margin: 3em 1em;
+    margin: 0 1em;
     padding-bottom: 30vw;
 
     /* text-align: center; */
