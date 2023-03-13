@@ -292,6 +292,11 @@ footer a img {
   margin-right: 10px;
 }
 
+.duck-count {
+  border-top: 2px solid #DD5F32;
+  margin-top: 3em;
+}
+
 .duck-count a:hover {
   border-bottom: 2px solid #F8E505;
 }
@@ -358,7 +363,7 @@ footer a img {
     grid-column: 1/2;
     grid-row: 2/3;
     border-top: 2px solid #DD5F32;
-    margin: 3em 1em;
+    /* margin: 3em 1em; */
     padding-bottom: 30vw;
 
     /* text-align: center; */
