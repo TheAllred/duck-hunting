@@ -68,8 +68,8 @@ export default function Home() {
       <main className="home-main">
         <DuckFound duckNum={4} timesFound={3} />
         <DuckCount counter={32} />
-        <Leaderboard />
         <UserHistory />
+        <Leaderboard />
       </main>
     </>
   );
@@ -95,6 +95,11 @@ function DuckFound({ duckNum, timesFound }: AppDuckProps) {
       <h1>
         You Found Duck #{duck.id}: {duck.name}
       </h1>
+      <p>Scan another duck!</p>
+
+      {/* <section className="duck-info">
+        <a href="#">Location: STC Atrium</a>
+      </section> */}
     </div>
   );
 }
@@ -112,7 +117,7 @@ function Leaderboard() {
 
   return (
     <div className="home-leaderboard">
-      <h2>Leaderboard</h2>
+      <h2>Leaderboard Top 10</h2>
       <ol>
         {leaderBoard.map((boardEntry) => (
           <li>
@@ -128,15 +133,14 @@ function UserHistory() {
   const { userHistory, count } = useLoaderData<typeof loader>();
 
   return (
-    <div className="home-UserHistory">
-      <h2>History</h2>
-      <p className="user-count">{count}/300</p>
+    <div className="home-UserHistory duck-count">
+      <h1>My Duck History</h1>
+      <p className="user-duck-count">Total Ducks Found: {count}/300</p>
       <ul>
         {userHistory.map((boardEntry) => (
           <li>
-            <p>ID: {boardEntry.id}</p>
-            <p>Name: {boardEntry.name}</p>
-            <p>Found at: {boardEntry.found_at}</p>
+            <h2>Duck #{boardEntry.id} {boardEntry.name}</h2>
+            <p>Date Found: {boardEntry.found_at}</p>
           </li>
         ))}
       </ul>

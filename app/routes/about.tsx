@@ -16,6 +16,11 @@ export default function Index() {
     <>
       <main>
         <Welcome />
+        <div className="found-duck">
+          <h2>Find a Duck?</h2>
+          <p>Login to save your duck or create a free account.</p>
+          <LoginButton />
+        </div>
         <Features />
       </main>
     </>
@@ -32,7 +37,6 @@ function Welcome() {
           competitive spirit.
         </p>
       </div>
-      <LoginButton />
     </div>
   );
 }
