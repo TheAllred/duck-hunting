@@ -12,9 +12,9 @@ export function Footer() {
         <p>Quick Links</p>
 
         <a href="/about">About</a>
-      </div>
-      <div className="socials">
-        <a href="https://www.instagram.com/duckduckhunt">
+        <a href="/leaderboard">Leaderboard</a>
+        <p>For feedback, please send us a message on Instagram</p>
+        <a href="https://www.instagram.com/duckduckhunt" className="insta">
           <InstagramFillIcon color="#fff" />
         </a>
       </div>
