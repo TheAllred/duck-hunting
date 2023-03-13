@@ -238,9 +238,13 @@ nav ul li a{
 footer{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  height: 10em;
+  justify-content: space-around;
+  /* height: 10em; */
   padding-top: 2em;
+}
+
+.quick-links {
+  margin-bottom: 3em;
 }
 
 .quick-links a{
@@ -249,6 +253,12 @@ footer{
 
 .quick-links a:hover {
   color: #F8E505;
+}
+
+.quick-links p:first-child {
+  border-bottom: 2px solid #F8E505;
+  padding-bottom: 0.3em;
+  width: 50%;
 }
 
 .insta {
@@ -314,9 +324,9 @@ footer a img {
   .footer-logo {
     height: 16em;
   }
-  footer {
+  /* footer {
     height: 20%;
-  }
+  } */
   .features section {
     display: flex;
     flex-direction: row;
