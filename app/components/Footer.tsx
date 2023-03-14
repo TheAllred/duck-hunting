@@ -13,6 +13,7 @@ export function Footer() {
 
         <a href="/about">About</a>
         <a href="/leaderboard">Leaderboard</a>
+        <a href="/index">Home</a>
         <p>For feedback, please send us a message on Instagram</p>
         <a href="https://www.instagram.com/duckduckhunt" className="insta">
           <InstagramFillIcon color="#fff" />
