@@ -67,7 +67,7 @@ export default function Home() {
     <>
       <main className="home-main">
         <DuckFound duckNum={4} timesFound={3} />
-        <DuckCount counter={32} />
+        {/* <DuckCount counter={32} /> */}
         <UserHistory />
         <Leaderboard />
       </main>
@@ -108,9 +108,9 @@ type AppUserDuckProps = {
   counter: number;
 };
 
-function DuckCount({ counter }: AppUserDuckProps) {
-  return <div className="duck-count"></div>;
-}
+// function DuckCount({ counter }: AppUserDuckProps) {
+//   return <div className="duck-count"></div>;
+// }
 
 function Leaderboard() {
   const { leaderBoard } = useLoaderData<typeof loader>();
