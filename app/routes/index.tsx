@@ -1,17 +1,12 @@
 // This is the main page with the users info and leaderboard
 
 import { json, LoaderArgs, redirect } from "@remix-run/node";
-import { Link } from "react-router-dom";
 import { useLoaderData } from "@remix-run/react";
 import knex from "~/knex";
-import UserLineIcon from "remixicon-react/UserLineIcon";
 // import duckLogo from "/duck-hunting/public/images/trans-duck-logo.png";
 import mainStyles from "~/css/styles.css";
-
-import { Header } from "~/components/Header";
-import { Footer } from "~/components/Footer";
-import { notFound } from "remix-utils";
 import { getUser } from "~/getUser";
+import * as dayjs from "dayjs";
 
 export function links() {
   return [{ rel: "stylesheet", href: mainStyles }];
@@ -32,7 +27,7 @@ export async function loader(args: LoaderArgs) {
       .groupBy("users.id")
       .groupBy("users.username")
       .orderBy("count", "desc")
-      .limit(100);
+      .limit(10);
   const userHistory: {
     id: string;
     name: string;
@@ -107,10 +102,6 @@ function DuckFound({ duckNum, timesFound }: AppDuckProps) {
 type AppUserDuckProps = {
   counter: number;
 };
-
-// function DuckCount({ counter }: AppUserDuckProps) {
-//   return <div className="duck-count"></div>;
-// }
 
 function Leaderboard() {
   const { leaderBoard } = useLoaderData<typeof loader>();

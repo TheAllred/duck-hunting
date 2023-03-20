@@ -33,6 +33,7 @@ export default function App() {
         <Header
           logo="https://cdn.discordapp.com/attachments/858075406191820810/1067217369904205864/full-trans-logo.png"
           user={user}
+          link={""}
         />
         <Outlet />
         <Footer />
