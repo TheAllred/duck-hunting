@@ -90,8 +90,11 @@ function DuckFound({ duckNum, timesFound }: AppDuckProps) {
       <h1>
         You Found Duck #{duck.id}: {duck.name}
       </h1>
-      <p>Scan another duck!</p>
-
+      <p>
+        Tag us at
+        <a href="https://www.instagram.com/duckduckhunt/">@duckduckhunt</a> with
+        a picture of where you hide the duck next!
+      </p>
       {/* <section className="duck-info">
         <a href="#">Location: STC Atrium</a>
       </section> */}
