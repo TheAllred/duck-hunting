@@ -9,7 +9,8 @@ export async function getUser(args: LoaderArgs) {
 
   const [user] = await knex("users")
     .insert({
-      email: auth0user.nickname,
+      email: auth0user.email,
+      username: auth0user.nickname,
     })
     .onConflict(["email"])
     .merge()

@@ -23,14 +23,14 @@ export async function loader(args: LoaderArgs) {
     throw redirect("/about");
   }
   const duckId = new URL(args.request.url).searchParams.get("duckId");
-  const leaderBoard: { id: string; email: string; count: string }[] =
+  const leaderBoard: { id: string; username: string; count: string }[] =
     await knex("user_ducks")
       .select("users.id")
-      .select("users.email")
+      .select("users.username")
       .count()
       .join("users", "users.id", "user_ducks.user_id")
       .groupBy("users.id")
-      .groupBy("users.email")
+      .groupBy("users.username")
       .orderBy("count", "desc")
       .limit(100);
   const userHistory: {
@@ -121,7 +121,7 @@ function Leaderboard() {
       <ol>
         {leaderBoard.map((boardEntry) => (
           <li>
-            <p>{boardEntry.email}</p>
+            <p>{boardEntry.username}</p>
             <p className="user-count">{boardEntry.count}/300</p>
           </li>
         ))}
@@ -139,7 +139,9 @@ function UserHistory() {
       <ul>
         {userHistory.map((boardEntry) => (
           <li>
-            <h2>Duck #{boardEntry.id} {boardEntry.name}</h2>
+            <h2>
+              Duck #{boardEntry.id} {boardEntry.name}
+            </h2>
             <p>Date Found: {boardEntry.found_at}</p>
           </li>
         ))}
